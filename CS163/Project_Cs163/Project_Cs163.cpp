@@ -104,23 +104,6 @@ int main()
             break;
         case 10:
             ViewRandomWord(tree, def_dir);
-            while (true)
-            {
-                system("cls");
-                int choice;
-                wcout << L"[1].View another word" << endl;
-                wcout << L"[2].Quit" << endl;
-                wcout << L"Input your choice : "; wcin >> choice;
-                if (choice == 1)
-                {
-                    ViewRandomWord(tree, def_dir);
-                }
-                else
-                {
-                    wcout << L"Goodbye" << endl;
-                    break;
-                }
-            }
             break;
 
         case 11:
@@ -182,7 +165,7 @@ void EditDefinition(AVL& tree, string def_dir) {
             wcout << word_x << ':' << endl;
             for (int j = 0; j < definitions.size() - 1; j++)
             {
-                wcout << setw(tap) << j + 1 << L". " << definitions[j] << endl;
+                wcout << setw(tap) << L"[" << j + 1 << L"]" << L". " << definitions[j] << endl;
             }
             //choose def to edit
             int ord;
@@ -240,50 +223,53 @@ void DeleteSearchHistory(search_history& Search_History) {
 void ViewSearchHistory(search_history& Search_History, AVL& root, string& def_dir) {
     _setmode(_fileno(stdout), _O_U16TEXT);
     _setmode(_fileno(stdin), _O_U16TEXT);
+
     Search_History.Load();
-    wcout << setw(tap) << L"-------Your search history------" << endl;
-    Search_History.View();
-    wcout << setw(tap) << L"--------------------------------" << endl;
-    wcout << L"Option" << endl;
-    wcout << L"[1].View word definitions" << endl;
-    wcout << L"[2].Back to the dictionary's menu" << endl;
-    int choice;
-    wcout << L"Please input your choice : "; wcin >> choice;
-    int total = 0;
-    switch (choice)
-    {
-    case 1:
-        total = Search_History.count();
-        while (true)
+    do {
+        system("cls");
+        wcout << setw(tap) << L"-------Your search history------" << endl;
+        Search_History.View();
+        wcout << setw(tap) << L"--------------------------------" << endl;
+        wcout << L"Option" << endl;
+        wcout << L"[1].View word definitions" << endl;
+        wcout << L"[2].Back to the dictionary's menu" << endl;
+        int choice;
+        wcout << L"Please input your choice : "; wcin >> choice;
+        int total = 0;
+        switch (choice)
         {
-            wcout << L"Please choose the serial of word : ";
-            int num;
-            wcin >> num;
-            if (num < 0 || num > total)
+        case 1:
+            total = Search_History.count();
+            while (true)
             {
-                wcout << L"Invalid Input" << endl;
-            }
-            else
-            {
-                Node<wstring>* word = Search_History.Find(num);
-                system("cls");
-                wcout << word->data << L':' << endl;
-                bNode* temp = root.search(word->data);
-                vector<wstring> temp1 = search_for_def(temp, def_dir);
-                for (int i = 0; i < temp1.size(); ++i)
+                wcout << L"Please choose the serial of word : ";
+                int num;
+                wcin >> num;
+                if (num < 0 || num > total)
                 {
-                    wcout << setw(tap) << i + 1 << L". " << temp1[i] << endl;
+                    wcout << L"Invalid Input" << endl;
                 }
-                break;
+                else
+                {
+                    Node<wstring>* word = Search_History.Find(num);
+                    wcout << word->data << L':' << endl;
+                    bNode* temp = root.search(word->data);
+                    vector<wstring> temp1 = search_for_def(temp, def_dir);
+                    for (int i = 0; i < temp1.size() - 1; ++i)
+                    {
+                        wcout << setw(tap) << i + 1 << L". " << temp1[i] << endl;
+                    }
+                    system("pause");
+                    break;
+                }
             }
+            break;
+        default:
+            wcout << L"Goodbye" << endl;
+            system("pause");
+            return;
         }
-        break;
-    default:
-        wcout << L"Goodbye" << endl;
-        break;
-    }
-    
-    system("pause");
+    } while (true);
 }
 
 
@@ -1190,20 +1176,40 @@ void ViewRandomWord(AVL& tree, string def_dir)
 {
     _setmode(_fileno(stdout), _O_U16TEXT);
     _setmode(_fileno(stdin), _O_U16TEXT);
-    bNode* root = tree.get_root();
-    int serial = FindRandom(tree, root);
-    int count = 0;
-    bNode* random = nullptr;
-    ViewRandom(root, serial, count, tree, def_dir, random);
-    vector <wstring> strs;
-    strs = search_for_def(random, def_dir);
-    system("cls");
-    wcout << random->key << ':' << endl;
-    for (int j = 0; j < strs.size() - 1; j++)
+
+    while (true)
     {
-        wcout << setw(tap) << j + 1 << L". " << strs[j] << endl;
+        system("cls");
+        bNode* root = tree.get_root();
+        int serial = FindRandom(tree, root);
+        int count = 0;
+        bNode* random = nullptr;
+        ViewRandom(root, serial, count, tree, def_dir, random);
+        vector <wstring> strs;
+        strs = search_for_def(random, def_dir);
+        
+        wcout << L"----------------------------------------------------" << endl;
+
+        wcout << random->key << ':' << endl;
+        for (int j = 0; j < strs.size() - 1; j++)
+        {
+            wcout << setw(tap) << j + 1 << L". " << strs[j] << endl;
+        }
+        wcout << L"----------------------------------------------------" << endl;
+        int choice;
+        wcout << L"[1].View another word" << endl;
+        wcout << L"[2].Quit" << endl;
+        wcout << L"Input your choice : "; wcin >> choice;
+        wcout << L"----------------------------------------------------" << endl;
+
+        if (choice == 1) continue;
+        else
+        {
+            wcout << setw(tap) << L"Goodbye" << endl;
+            system("pause");
+            break;
+        }
     }
-    system("pause");
 }
 
 void ResetToOriginal(AVL& tree, string& struct_dir, string& def_dir, string& hash_dir, c_hash& key_hash)
