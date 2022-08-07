@@ -1208,6 +1208,7 @@ void ViewRandomWord(AVL& tree, string def_dir)
         if (choice == 1) continue;
         else
         {
+            wcout << L"-------------------------------" << endl;
             wcout << setw(tap) << L"Goodbye" << endl;
             system("pause");
             break;
