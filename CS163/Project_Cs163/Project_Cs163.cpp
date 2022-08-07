@@ -252,6 +252,8 @@ void ViewSearchHistory(search_history& Search_History, AVL& root, string& def_di
                 else
                 {
                     Node<wstring>* word = Search_History.Find(num);
+                    system("cls");
+                    wcout << L"----------------------------------------------------" << endl;
                     wcout << word->data << L':' << endl;
                     bNode* temp = root.search(word->data);
                     vector<wstring> temp1 = search_for_def(temp, def_dir);
@@ -259,12 +261,14 @@ void ViewSearchHistory(search_history& Search_History, AVL& root, string& def_di
                     {
                         wcout << setw(tap) << i + 1 << L". " << temp1[i] << endl;
                     }
+                    wcout << L"----------------------------------------------------" << endl;
                     system("pause");
                     break;
                 }
             }
             break;
         default:
+            wcout << setw(tap) << L"--------------------------------" << endl;
             wcout << L"Goodbye" << endl;
             system("pause");
             return;
@@ -1200,7 +1204,6 @@ void ViewRandomWord(AVL& tree, string def_dir)
         wcout << L"[1].View another word" << endl;
         wcout << L"[2].Quit" << endl;
         wcout << L"Input your choice : "; wcin >> choice;
-        wcout << L"----------------------------------------------------" << endl;
 
         if (choice == 1) continue;
         else
