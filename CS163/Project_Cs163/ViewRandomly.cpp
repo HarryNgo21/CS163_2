@@ -5,9 +5,9 @@ int FindRandom(AVL &tree, bNode* &root)
 	srand((int)time(0));
 	int total = 0;
 	tree.num_of_words(root, total);
-	int number =  rand() % (total + 1);
+	int number = rand() % (total + 1);
 	wcout << number << endl;
-	return number;
+	return 1 + (1 + (number * rand()) % (total + 1 - 1)) % (total + 1 - 1);
 }
 void ViewRandom(bNode* &root, int number, int &count, AVL &tree, string dir,bNode*&random)
 {
