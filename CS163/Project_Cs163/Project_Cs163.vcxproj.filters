@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Project_Cs163.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AVL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="converter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="search.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewRandomly.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Add.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoveFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="search_history.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="edit_definition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="remove_a_word.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Keyword.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AVL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Const.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="search.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="converter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewRandomly.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="convert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoveFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="search_history.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="remove_a_word.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="edit_definition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Keyword.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="database\eng-eng\.DS_Store">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="database\eng-eng\def.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="database\eng-eng\struct.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="database\eng-eng\1English definitions.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\A.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\B.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\C.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\D.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\E.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\F.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\G.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\H.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\I.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\J.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\K.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\L.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\M.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\N.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\O.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\P.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\Q.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\R.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\S.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\T.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\U.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\V.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\W.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\X.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\Y.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="database\eng-eng\Z.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
