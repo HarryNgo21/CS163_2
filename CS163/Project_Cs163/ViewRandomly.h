@@ -7,6 +7,6 @@
 #include <time.h>
 #include "AVL.h"
 
-int FindRandom(AVL &tree, bNode* &root);
+int FindRandom(AVL& tree, bNode*& root);
 
-void ViewRandom(bNode* &root, int number, int &count, AVL &tree, string dir,bNode*&random);
+void ViewRandom(bNode*& root, int number, int& count, AVL& tree, string dir, bNode*& random);

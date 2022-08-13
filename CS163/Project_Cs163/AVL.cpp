@@ -7,7 +7,7 @@
 
 //static locale empty();
 
-bNode::bNode() : left(nullptr), right(nullptr) {}
+bNode::bNode() : f(false), left(nullptr), right(nullptr) {}
 bNode::bNode(wstring s, int D) : key(s), h(1), d(D), f(false), left(nullptr), right(nullptr) {}
 
 bool bNode::add(bNode*& root)
@@ -235,7 +235,11 @@ int AVL::load(ifstream& fin, FL& fl)
     {
         bNode* temp = new bNode; temp->load(fin);
         root->add(temp);
-        if (temp->f) fl.AoR(temp);
+        if (temp->f)
+        {
+            temp->f = false;
+            fl.AoR(temp);
+        }
         ++c;
     }
     return c;
@@ -315,4 +319,8 @@ void AVL::num_of_words(bNode* root, int& a)
     num_of_words(root->left, a);
     num_of_words(root->right, a);
     a += 1;
+}
+void AVL::DeleteRoot()
+{
+    root = NULL;
 }
