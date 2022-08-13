@@ -56,3 +56,41 @@ void ignore_blank(string dir)
     fin.close();
     fout.close();
 }
+
+void lower_key()
+{
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+    while (!fin.eof())
+    {
+        string tmp;
+        getline(fin, tmp, '\t');
+        transform(tmp.begin(), tmp.end(), tmp.begin(), ::tolower);
+        fout << tmp << '\t';
+        getline(fin, tmp);
+        fout << tmp << endl;
+    }
+    fin.close();
+    fout.close();
+}
+
+void convert_single_quote(string dir)
+{
+    char t;
+    string tmp1, tmp2;
+    bool isfirst = false, iskey = false;
+    ofstream fout;
+    ifstream fin;
+    fin.open(dir);
+    fout.open("output.txt");
+    while (!fin.eof())
+    {
+        tmp1.clear();
+        getline(fin, tmp1, '`');
+        fout << tmp1 << '\t';
+        getline(fin, tmp1);
+        fout << tmp1 << endl;
+    }
+    fout.close();
+    fin.close();
+}
