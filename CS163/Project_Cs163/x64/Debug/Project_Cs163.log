@@ -1,0 +1,5 @@
+﻿  Project_Cs163.cpp
+C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(919,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(933,38): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(824): warning C4715: 'Switch_data_set': not all control paths return a value
+  Project_Cs163.vcxproj -> C:\Users\MV\Desktop\CS163\CS163\x64\Debug\Project_Cs163.exe
