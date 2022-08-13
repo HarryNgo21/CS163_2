@@ -6,6 +6,20 @@ FL::FL(int size) : arr(new bNode* [size]), m_size(size), c_size(0)
     t_arr = new Node<bNode*>(new bNode(L"errMSG", -1), nullptr);
 }
 
+FL::FL(const FL& f) : c_size(f.c_size), m_size(f.m_size)
+{
+    arr = new bNode * [m_size];
+    for (int i = 0; i < f.m_size; ++i) arr[i] = f.arr[i];
+    t_arr = new Node<bNode*>(new bNode(L"errMSG", -1), nullptr);
+    Node<bNode*>* temp = f.t_arr, * t = t_arr;
+    while (temp->next)
+    {
+        t->next = new Node<bNode*>(temp->next->data, nullptr);
+        t = t->next;
+        temp = temp->next;
+    }
+}
+
 FL::~FL()
 {
     delete[] arr;
@@ -20,6 +34,28 @@ bNode*& FL::operator[](int i)
     Node<bNode*>* temp = t_arr;
     while (i--) temp = temp->next;
     return temp->data;
+}
+
+FL& FL::operator=(const FL& f)
+{
+    if (this != &f)
+    {
+        delete[] arr;
+        t_arr->clear();
+        c_size = f.c_size;
+        m_size = f.m_size;
+        arr = new bNode * [m_size];
+        for (int i = 0; i < f.m_size; ++i) arr[i] = f.arr[i];
+        t_arr = new Node<bNode*>(new bNode(L"errMSG", -1), nullptr);
+        Node<bNode*>* temp = f.t_arr, * t = t_arr;
+        while (temp->next)
+        {
+            t->next = new Node<bNode*>(temp->next->data, nullptr);
+            t = t->next;
+            temp = temp->next;
+        }
+    }
+    return *this;
 }
 
 void FL::AoR(bNode* b)
@@ -121,10 +157,7 @@ int FL::size()
     return c_size;
 }
 
-bool FL::save(string dir)
+void FL::save(ofstream& fout)
 {
-    ofstream fout(dir, ios_base::binary);
-    if (!fout.is_open()) return false;
     fout.write((char*)&c_size, sizeof(int));
-    return true;
 }

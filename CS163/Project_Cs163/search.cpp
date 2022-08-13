@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <io.h>
 #include <fcntl.h>
-
 #include "search.h"
 #include "Const.h"
 
@@ -172,4 +171,39 @@ bool random_def_game(vector<vector<wstring>> lists)
         wcout << L"correct answer: " << lists[random][0] << endl;
         return false;
     }
+}
+
+wstring modify_input(wstring& str)
+{
+    locale::global(locale(""));
+    wcout.imbue(locale());
+    bool is_leading = false, fspace = true;
+    auto& env = std::use_facet< std::ctype<wchar_t> >(locale());
+    wstring ans;
+    env.tolower(&str[0], &str[0] + str.size());
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (is_leading == false)
+        {
+            if (str[i] == ' ')
+            {
+                str.erase(i, 1);
+                i--;
+            }
+            else
+            {
+                is_leading = true;
+            }
+        }
+        else
+        {
+            if (str[i] == ' ' && str[i + 1] == ' ')
+            {
+                str.erase(i, 1);
+                i--;
+            }
+        }
+    }
+    ans = str;
+    return ans;
 }
