@@ -17,6 +17,7 @@
 #include"Keyword.h"
 #include"edit_definition.h"
 #include"Keyword.h"
+#include"render.h"
 
 bool load(AVL tree); // load data from file
 
