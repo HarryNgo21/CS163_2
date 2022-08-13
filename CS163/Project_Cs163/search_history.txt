@@ -8,3 +8,5 @@ Cat
 Go
 Walk
 cho
+Dog
+Cat
