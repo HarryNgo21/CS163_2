@@ -42,3 +42,5 @@ void ViewSearchHistory(search_history&, AVL& root, string& def_dir);
 void DeleteSearchHistory(search_history&);
 
 void EditDefinition(AVL& tree, string def_dir);
+
+void RemoveAWord(AVL& tree, string def_dir);
