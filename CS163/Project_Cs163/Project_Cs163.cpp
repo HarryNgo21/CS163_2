@@ -1013,6 +1013,7 @@ void S4D(AVL& tree, FL& fl, c_hash& key_hash, search_history& search_history, st
         system("cls");
         wcout << L"Enter a word (0 to quit): ";
         getline(wcin, k);
+        toupper(k[0]);
         if (k == L"0") return;
         S(tree, fl, key_hash, search_history, dir, k);
     } while (k != L"0");
@@ -1259,11 +1260,12 @@ void Add(AVL& tree, string& def_dir)
     _setmode(_fileno(stdin), _O_U16TEXT);
     bool again = true;
     wstring key, def;
+    system("cls");
     while (again)
     {
-        wcout << L"Please input word  that you want to add to dictionary = ";
+        wcout << L"Please input word  that you want to add to dictionary : ";
         getline(wcin, key);
-        wcout << L"Please input definition of word that you want to add to dictionary = ";
+        wcout << L"Please input definition of word that you want to add to dictionary : ";
         getline(wcin, def);
         int i = tree.Add(tree, key, def, def_dir);
         switch (i)
@@ -1281,6 +1283,7 @@ void Add(AVL& tree, string& def_dir)
             system("pause");
             break;
         }
+        system("cls");
         wcout << L"Do you want to add new word once more time ? " << endl;
         wcout << L"[0] : No" << endl;
         wcout << L"[1] : Yes" << endl;

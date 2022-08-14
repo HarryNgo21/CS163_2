@@ -8,8 +8,15 @@ Cat
 Go
 Walk
 cho
+<<<<<<< Updated upstream
 Dog
 Cat
 Dog
 Cat
 Cat
+=======
+minh vi
+minh vi
+minh vi
+Dog
+>>>>>>> Stashed changes
