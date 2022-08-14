@@ -1,17 +1,22 @@
 #include "AVL.h"
+#include<string>
 #include<iostream>
 using namespace std;
-int AVL::Add(AVL& tree, wstring key, wstring def, string def_dir)
+int AVL::Add(AVL& tree, wstring key, string def_dir,int numb)
 {
-	toupper(key[0]);
-	if (tree.search(key)) return -1;
+	wstring def;
 	ofstream fout(def_dir, ios_base::binary | ios_base::app | ios_base::ate);
 	if (!fout.is_open()) return -2;
-	int d = fout.tellp(),l = def.length()+1;
-	int numb = 1;
+	int d = fout.tellp();
 	fout.write((char*)&numb, sizeof(int));
-	fout.write((char*)&l, sizeof(int));
-	fout.write((char*)&def[0], l * sizeof(wchar_t));
+	for (int i = 0; i < numb; i++)
+	{
+		wcout << L"Please input definition of word that you want to add to dictionary : ";
+		getline(wcin, def);
+		int l = def.length() + 1;
+		fout.write((char*)&l, sizeof(int));
+		fout.write((char*)&def[0], l * sizeof(wchar_t));
+	}
 	fout.close();
 	tree.insert(key, d);
 	return d;

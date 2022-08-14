@@ -1,9 +1,5 @@
-﻿  Add.cpp
-C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Add.cpp(10,8): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
-C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Add.cpp(10,41): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Project_Cs163.cpp
-C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(966,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(980,38): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(870): warning C4715: 'Switch_data_set': not all control paths return a value
+﻿  Project_Cs163.cpp
+C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(1034,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(1048,38): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(936): warning C4715: 'Switch_data_set': not all control paths return a value
   Project_Cs163.vcxproj -> C:\Users\MV\Desktop\CS163\CS163\x64\Debug\Project_Cs163.exe

@@ -148,6 +148,7 @@
     <ClCompile Include="Project_Cs163.cpp" />
     <ClCompile Include="RemoveFile.cpp" />
     <ClCompile Include="remove_a_word.cpp" />
+    <ClCompile Include="render.cpp" />
     <ClCompile Include="search.cpp" />
     <ClCompile Include="search_history.cpp" />
     <ClCompile Include="ViewRandomly.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Main.h" />
     <ClInclude Include="RemoveFile.h" />
     <ClInclude Include="remove_a_word.h" />
+    <ClInclude Include="render.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="search.h" />
     <ClInclude Include="search_history.h" />

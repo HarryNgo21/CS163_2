@@ -51,6 +51,9 @@
     <ClCompile Include="Keyword.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="render.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AVL.h">
@@ -99,6 +102,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Keyword.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="render.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

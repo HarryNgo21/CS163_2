@@ -33,7 +33,7 @@ public:
 
     int load(ifstream&, FL&);
     bool save(ofstream&);
-    int Add(AVL&, wstring, wstring, string);
+    int Add(AVL&, wstring, string,int);
     bNode* get_root()
     {
         return root;
