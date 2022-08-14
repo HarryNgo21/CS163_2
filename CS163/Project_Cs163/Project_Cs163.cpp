@@ -1340,7 +1340,8 @@ void ResetToOriginal(AVL& tree, string& struct_dir, string& def_dir, string& has
     bool Check = DeleteFile(struct_dir);
     bool Check1 = DeleteFile(def_dir);
     bool Check2 = DeleteFile(hash_dir);
-    tree.DeleteRoot();
+    bNode* root = tree.get_root();
+    clear(root);
     int size;
     if (struct_dir == "database\\eng-eng\\struct.bin")
     {
