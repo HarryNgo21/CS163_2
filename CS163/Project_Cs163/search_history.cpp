@@ -28,7 +28,7 @@ Node<wstring>* search_history::Load(string history_dir)
 
 		wstring word;
 		while (!fin.eof()) {
-			fin >> word;
+			getline(fin, word);
 			hist_head = new Node<wstring>(word, hist_head);
 		}
 		fin.close();

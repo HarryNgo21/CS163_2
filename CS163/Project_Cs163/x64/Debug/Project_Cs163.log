@@ -1,5 +1,3 @@
-﻿  Project_Cs163.cpp
-C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(1034,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(1048,38): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\Project_Cs163.cpp(936): warning C4715: 'Switch_data_set': not all control paths return a value
+﻿  search_history.cpp
+C:\Users\MV\Desktop\CS163\CS163\Project_Cs163\search_history.cpp(20): warning C4715: 'search_history::Dist': not all control paths return a value
   Project_Cs163.vcxproj -> C:\Users\MV\Desktop\CS163\CS163\x64\Debug\Project_Cs163.exe
