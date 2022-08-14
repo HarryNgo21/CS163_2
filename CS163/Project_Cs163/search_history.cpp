@@ -11,12 +11,20 @@ bool check_empty_file(string dir) {
 	return check;
 }
 
+string search_history::Dist(string def_dir) {
+	if (def_dir == "database\\eng-vie\\def.bin") return "database\\eng-vie\\search_history.txt";
+	if (def_dir == "database\\eng-eng\\def.bin") return "database\\eng-eng\\search_history.txt";
+	if (def_dir == "database\\vie-eng\\def.bin") return "database\\vie-eng\\search_history.txt";
+	if (def_dir == "database\\slang\\def.bin") return "database\\slang\\search_history.txt";
+	if (def_dir == "database\\emotional\\def.bin") return "database\\emotional\\search_history.txt";
+}
 
-Node<wstring>* search_history::Load()
+
+Node<wstring>* search_history::Load(string history_dir)
 {
-	if (!check_empty_file("search_history.txt")) {
+	if (!check_empty_file(history_dir)) {
 		wifstream fin;
-		fin.open("search_history.txt");
+		fin.open(history_dir);
 
 		wstring word;
 		while (!fin.eof()) {
@@ -53,11 +61,11 @@ Node<wstring>* search_history::Find(int num)
 	}
 	return temp;
 }
-Node<wstring>* search_history::Add(wstring word)
+Node<wstring>* search_history::Add(wstring word, string history_dist)
 {
 	hist_head = new Node<wstring>(word, hist_head);
 	wofstream fout;
-	fout.open("search_history.txt", ios::app);
+	fout.open(history_dist, ios::app);
 	fout << word << endl;
 	fout.close();
 	return hist_head;
@@ -78,8 +86,8 @@ void search_history::View()
 	}
 }
 
-Node<wstring>* search_history::Delete() {
-	ofstream fout("search_history.txt", ios::trunc);
+Node<wstring>* search_history::Delete(string history_dir) {
+	ofstream fout(history_dir, ios::trunc);
 	fout.close();
 	if (hist_head) hist_head->clear();
 	hist_head = nullptr;

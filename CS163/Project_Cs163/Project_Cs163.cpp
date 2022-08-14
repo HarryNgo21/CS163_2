@@ -81,7 +81,7 @@ int main()
             break;
 
         case 4: //delete search history
-            DeleteSearchHistory(Search_History);
+            DeleteSearchHistory(Search_History, def_dir);
             break;
 
         case 5://favorite word
@@ -135,9 +135,6 @@ int main()
 }
 
 void RemoveAWord(AVL& tree, string def_dir) {
-    /*setmode(_fileno(stdout), _O_U16TEXT);
-    _setmode(_fileno(stdin), _O_U16TEXT);*/
-
     vector<wstring> definitions;
     wstring word_x;
     int i = 1;
@@ -265,10 +262,12 @@ void EditDefinition(AVL& tree, string def_dir) {
     } while (word_x != L"0");
 }
 
-void DeleteSearchHistory(search_history& Search_History) {
+void DeleteSearchHistory(search_history& Search_History, string def_dir) {
     _setmode(_fileno(stdout), _O_U16TEXT);
     _setmode(_fileno(stdin), _O_U16TEXT);
-    Search_History.Delete();
+
+    string history_dist = Search_History.Dist(def_dir);
+    Search_History.Delete(history_dist);
     wcout << setw(tap) << L"--------------------------------" << endl;
     wcout << setw(tap) << L"History deleted!" << endl;
     wcout << setw(tap) << L"--------------------------------" << endl;
@@ -279,7 +278,8 @@ void ViewSearchHistory(search_history& Search_History, AVL& root, string& def_di
     _setmode(_fileno(stdout), _O_U16TEXT);
     _setmode(_fileno(stdin), _O_U16TEXT);
 
-    Search_History.Load();
+    string history_dist = Search_History.Dist(def_dir);
+    Search_History.Load(history_dist);
     do {
         system("cls");
         wcout << setw(tap) << L"-------Your search history------" << endl;
@@ -290,11 +290,17 @@ void ViewSearchHistory(search_history& Search_History, AVL& root, string& def_di
         wcout << L"[2].Back to the dictionary's menu" << endl;
         int choice;
         wcout << L"Please input your choice : "; wcin >> choice;
-        int total = 0;
+        int total = Search_History.count();
         switch (choice)
         {
         case 1:
-            total = Search_History.count();
+            if (total == 0) {
+                wcout << L"--------------------------------" << endl;
+                wcout << setw(tap) << L"No word to view !" << endl;
+                wcout << L"--------------------------------" << endl;
+                system("pause");
+                break;
+            }
             while (true)
             {
                 wcout << L"Please choose the serial of word : ";
@@ -311,7 +317,7 @@ void ViewSearchHistory(search_history& Search_History, AVL& root, string& def_di
                     wcout << L"----------------------------------------------------" << endl;
                     bNode* temp = root.search(word->data);
                     if (!temp) {
-                        wcout << L"No result !" << endl;
+                        wcout << L"This word no longer exists !" << endl;
                     }
                     else {
                         vector<wstring> temp1 = search_for_def(temp, def_dir);
@@ -939,7 +945,10 @@ void S(AVL& tree, FL& fl, c_hash& key_hash, search_history& search_history, stri
         system("pause");
         return;
     }
-    search_history.Add(k);
+    //add to search history
+    string history_dist = search_history.Dist(dir);
+    search_history.Add(k, history_dist);
+
     //search definition (done)
     vector<wstring> strs = search_for_def(temp, dir);
     //options

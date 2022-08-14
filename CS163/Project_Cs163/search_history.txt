@@ -10,3 +10,6 @@ Walk
 cho
 Dog
 Cat
+Dog
+Cat
+Cat

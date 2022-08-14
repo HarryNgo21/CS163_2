@@ -16,12 +16,13 @@ private:
 	Node<wstring>* hist_head;
 public:
 	search_history();
-	Node<wstring>* Load();
-	Node<wstring>* Add(wstring word);
-	Node<wstring>* Delete();
+	string Dist(string def_dir);
+	Node<wstring>* Load(string history_dist);
+	Node<wstring>* Add(wstring word, string history_dist);
+	Node<wstring>* Delete(string history_dir);
 	int count();
 	Node<wstring>* Find(int);
 	void View();
 };
 
-bool check_empty_file(wifstream& fin);
+bool check_empty_file(string dir);
