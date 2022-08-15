@@ -2,7 +2,7 @@
 #include<string>
 #include<iostream>
 using namespace std;
-int AVL::Add(AVL& tree, wstring key, string def_dir,int numb)
+int AVL::Add(AVL& tree, wstring key, string def_dir,int numb, c_hash& key_hash)
 {
 	wstring def;
 	ofstream fout(def_dir, ios_base::binary | ios_base::app | ios_base::ate);
@@ -16,6 +16,9 @@ int AVL::Add(AVL& tree, wstring key, string def_dir,int numb)
 		int l = def.length() + 1;
 		fout.write((char*)&l, sizeof(int));
 		fout.write((char*)&def[0], l * sizeof(wchar_t));
+		vector<wstring> kw = getKeyWord(def);
+		for (wstring s : kw)
+			key_hash.add(s, key);
 	}
 	fout.close();
 	tree.insert(key, d);

@@ -92,11 +92,11 @@ int main()
             Quizz(tree, def_dir);
             break;
         case 7:
-            Add(tree, def_dir);
+            Add(tree, def_dir,key_hash);
             break;
 
         case 8: //edit a word definition
-            EditDefinition(tree, def_dir);
+            EditDefinition(tree, def_dir,key_hash);
             break;
 
         case 9: //remove a word
@@ -186,7 +186,7 @@ void RemoveAWord(AVL& tree, string def_dir) {
 }
 
 
-void EditDefinition(AVL& tree, string def_dir) {
+void EditDefinition(AVL& tree, string def_dir, c_hash& key_hash) {
     _setmode(_fileno(stdout), _O_U16TEXT);
     _setmode(_fileno(stdin), _O_U16TEXT);
 
@@ -250,6 +250,9 @@ void EditDefinition(AVL& tree, string def_dir) {
             //change the definition
             if (check == 'y') {
                 edit_definition(word, ord - 1, new_def, definitions, def_dir);
+                vector<wstring> kw = getKeyWord(new_def);
+                for (wstring s : kw)
+                    key_hash.add(s, word_x);
                 wcout << setw(tap) << L"Definition changed ! " << endl;
             }
             else {
@@ -487,6 +490,7 @@ int Switch_data_set(string& struct_dir, string& def_dir, c_hash& key_hash, strin
         wcout << L"[3].Change to slang mode" << endl;
         wcout << L"[4].Change to emotional mode" << endl;
         wcout << L"Please input your choice = "; wcin >> choice; wcin.ignore(1000, L'\n');
+        system("cls");
         if (choice == 1)
         {
             def_dir = "database\\vie-eng\\def.bin";
@@ -578,6 +582,7 @@ int Switch_data_set(string& struct_dir, string& def_dir, c_hash& key_hash, strin
         wcout << L"[3].Change to slang mode" << endl;
         wcout << L"[4].Change to emotional mode" << endl;
         wcout << L"Please input your choice = "; wcin >> choice; wcin.ignore(1000, L'\n');
+        system("cls");
         if (choice == 1)
         {
             def_dir = "database\\eng-vie\\def.bin";
@@ -669,6 +674,7 @@ int Switch_data_set(string& struct_dir, string& def_dir, c_hash& key_hash, strin
         wcout << L"[3].Change to slang mode" << endl;
         wcout << L"[4].Change to emotional mode" << endl;
         wcout << L"Please input your choice = "; wcin >> choice; wcin.ignore(1000, L'\n');
+        system("cls");
         if (choice == 1)
         {
             def_dir = "database\\vie-eng\\def.bin";
@@ -760,6 +766,7 @@ int Switch_data_set(string& struct_dir, string& def_dir, c_hash& key_hash, strin
         wcout << L"[3].Change to eng-eng mode" << endl;
         wcout << L"[4].Change to emotional mode" << endl;
         wcout << L"Please input your choice = "; wcin >> choice; wcin.ignore(1000, L'\n');
+        system("cls");
         if (choice == 1)
         {
             def_dir = "database\\vie-eng\\def.bin";
@@ -851,6 +858,7 @@ int Switch_data_set(string& struct_dir, string& def_dir, c_hash& key_hash, strin
         wcout << L"[3].Change to eng-eng mode" << endl;
         wcout << L"[4].Change to slang mode" << endl;
         wcout << L"Please input your choice = "; wcin >> choice; wcin.ignore(1000, L'\n');
+        system("cls");
         if (choice == 1)
         {
             def_dir = "database\\vie-eng\\def.bin";
@@ -1253,7 +1261,7 @@ void Quizz(AVL& tree, string dir)
     } while (1);
 }
 
-void Add(AVL& tree, string& def_dir)
+void Add(AVL& tree, string& def_dir, c_hash& key_hash)
 {
     _setmode(_fileno(stdout), _O_U16TEXT);
     _setmode(_fileno(stdin), _O_U16TEXT);
@@ -1267,7 +1275,7 @@ void Add(AVL& tree, string& def_dir)
         int num;
         wcout << L"Input number of definition : "; wcin >> num;
         wcin.ignore();
-        int i = tree.Add(tree, key, def_dir,num);
+        int i = tree.Add(tree, key, def_dir,num,key_hash);
         switch (i)
         {
         case -2:

@@ -29,7 +29,7 @@ void F_screen(FL&, string def_dir);
 
 void Quizz(AVL&, string);
 
-void Add(AVL& tree, string& def_dir);
+void Add(AVL& tree, string& def_dir, c_hash& key_hash);
 
 void ViewRandomWord(AVL& tree, string def_dir);
 
@@ -41,6 +41,6 @@ void ViewSearchHistory(search_history&, AVL& root, string& def_dir);
 
 void DeleteSearchHistory(search_history& Search_History, string def_dir);
 
-void EditDefinition(AVL& tree, string def_dir);
+void EditDefinition(AVL& tree, string def_dir,c_hash& key_hash);
 
 void RemoveAWord(AVL& tree, string def_dir);
